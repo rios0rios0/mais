@@ -4,6 +4,12 @@
         <img src="https://img.shields.io/github/release/rios0rios0/mais.svg?style=for-the-badge&logo=github" alt="Latest Release"/></a>
     <a href="https://github.com/rios0rios0/mais/blob/main/LICENSE">
         <img src="https://img.shields.io/github/license/rios0rios0/mais.svg?style=for-the-badge&logo=github" alt="License"/></a>
+    <a href="https://sonarcloud.io/summary/overall?id=rios0rios0_mais">
+        <img src="https://img.shields.io/sonar/coverage/rios0rios0_mais?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarqubecloud" alt="Coverage"/></a>
+    <a href="https://sonarcloud.io/summary/overall?id=rios0rios0_mais">
+        <img src="https://img.shields.io/sonar/quality_gate/rios0rios0_mais?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarqubecloud" alt="Quality Gate"/></a>
+    <a href="https://www.bestpractices.dev/projects/3013">
+        <img src="https://img.shields.io/cii/level/3013?style=for-the-badge&logo=opensourceinitiative" alt="OpenSSF Best Practices"/></a>
 </p>
 
 A distributed multi-agent security system built with Java that monitors and enforces process-level security policies across networked machines. Agents communicate via Java RMI using a SYN/ACK-inspired protocol to share process execution reports, collectively deciding whether to start, kill, or escalate actions on blacklisted or whitelisted processes through consensus-based voting.
