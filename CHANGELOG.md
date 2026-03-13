@@ -16,9 +16,16 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-03-12
+
 ### Added
 
 - added GitHub Actions workflow for CI/CD pipeline
+- added OWASP Dependency-Check Maven plugin configuration with NVD API key support to fix CI database corruption from rate-limited NVD requests
+
+### Fixed
+
+- fixed JVM crash during test execution by updating JaCoCo (`0.8.12`), Surefire (`3.5.2`), and Coveralls (`4.4.0`) plugin versions for Java 21 compatibility
 
 ### Removed
 
