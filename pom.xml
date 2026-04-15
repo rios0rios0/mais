@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <name>MAIS</name>
     <artifactId>MAIS</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <description>Multi Agent Intelligent System</description>
     <groupId>com.rios0rios0</groupId>
     <modelVersion>4.0.0</modelVersion>
