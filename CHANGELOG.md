@@ -16,6 +16,14 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+### Added
+
+- added `CLAUDE.md` with build commands, architecture overview, and repo conventions for Claude Code sessions
+
+### Changed
+
+- refreshed `.github/copilot-instructions.md` to reflect Java 1.8 (was 1.7), JUnit 4.13.2 (was 4.13.1), current artifact version, and OWASP Dependency-Check plugin
+
 ## [0.1.1] - 2026-04-15
 
 ### Changed

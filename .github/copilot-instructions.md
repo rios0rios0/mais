@@ -2,20 +2,21 @@
 
 ## Project Overview
 
-MAIS (Multi Agent Intelligent System) is a distributed, multi-agent security system built with Java 1.7.
+MAIS (Multi Agent Intelligent System) is a distributed, multi-agent security system built with Java 1.8.
 It monitors and enforces process-level security policies across networked machines.
 Agents communicate via Java RMI using a SYN/ACK-inspired protocol, sharing process execution reports and collectively deciding whether to start, kill, or escalate actions on blacklisted or whitelisted processes through consensus-based voting.
 
 ## Technology Stack
 
-- **Language**: Java 1.7 (SDK language level 7)
+- **Language**: Java 1.8 (SDK language level 8)
 - **Build tool**: Apache Maven 3.6+ with `maven-assembly-plugin` for fat JAR packaging
 - **RMI**: Java RMI on port 1099 for inter-agent communication
 - **Process management**: [jProcesses](https://github.com/profesorfalken/jProcesses) 1.6.5
-- **Testing**: JUnit 4.13.1
+- **Testing**: JUnit 4.13.2
 - **Coverage**: JaCoCo with Coveralls integration
 - **CI/CD**: GitHub Actions via a reusable workflow (`rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`)
 - **Code quality**: SonarCloud
+- **Security scanning**: OWASP Dependency-Check Maven plugin (configured with NVD API key)
 
 ## Repository Structure
 
@@ -59,10 +60,10 @@ All commands are run from the repository root.
 
 | Task | Command | Notes |
 |------|---------|-------|
-| Build fat JAR | `mvn clean package` | Output: `target/MAIS-1.0.0-jar-with-dependencies.jar` |
+| Build fat JAR | `mvn clean package` | Output: `target/MAIS-<version>-jar-with-dependencies.jar` |
 | Run tests | `mvn test` | JaCoCo agent is activated automatically |
 | Generate coverage report | `mvn jacoco:report` | Report at `target/site/jacoco/index.html` |
-| Run the agent | `java -jar target/MAIS-1.0.0-jar-with-dependencies.jar` | Requires Java 1.7+ |
+| Run the agent | `java -jar target/MAIS-<version>-jar-with-dependencies.jar` | Requires Java 1.8+ |
 
 Build time is typically under 60 seconds on a standard machine. Tests run in under 30 seconds.
 
@@ -118,7 +119,7 @@ Required permissions: `security-events: write`, `contents: write`.
 
 ## Coding Conventions
 
-- Java 1.7 source and target compatibility — do **not** use Java 8+ language features (lambdas, streams, etc.).
+- Java 1.8 source and target compatibility — do **not** use Java 9+ language features (modules, `var`, etc.). Lambdas and streams are permitted.
 - Group ID: `com.rios0rios0`; keep all production classes under `src/main/java/com/rios0rios0/`.
 - Use the `Console` and `Colorize` utilities for all terminal output rather than `System.out.println`.
 - RMI remote interfaces must extend `java.rmi.Remote`; all remote methods must declare `throws RemoteException`.
@@ -135,8 +136,8 @@ Another RMI registry is running. Stop it or run the agent on a different host. T
 ### Agent cannot find neighbours
 Ensure the hosts are on the same `/24` subnet and that port 1099 is not blocked by a firewall.
 
-### Build fails with "source/target 1.7" errors
-Verify your JDK is 1.7 or later. The Maven compiler source/target is explicitly set to `1.7` in `pom.xml`.
+### Build fails with "source/target 1.8" errors
+Verify your JDK is 1.8 or later. The Maven compiler source/target is explicitly set to `1.8` in `pom.xml`.
 
 ### Coverage report is empty
 Run `mvn test` before `mvn jacoco:report` — the JaCoCo agent must instrument the test run first.
