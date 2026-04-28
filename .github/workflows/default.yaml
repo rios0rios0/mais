@@ -17,6 +17,6 @@ permissions:
 
 jobs:
   default:
-    uses: 'rios0rios0/pipelines/.github/workflows/java-maven.yaml@main'
+    uses: 'rios0rios0/pipelines/.github/workflows/maven-library.yaml@main'
     secrets:
       NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
