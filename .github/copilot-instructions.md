@@ -14,7 +14,7 @@ Agents communicate via Java RMI using a SYN/ACK-inspired protocol, sharing proce
 - **Process management**: [jProcesses](https://github.com/profesorfalken/jProcesses) 1.6.5
 - **Testing**: JUnit 4.13.2
 - **Coverage**: JaCoCo with Coveralls integration
-- **CI/CD**: GitHub Actions via a reusable workflow (`rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`)
+- **CI/CD**: GitHub Actions via a reusable workflow (`rios0rios0/pipelines/.github/workflows/maven-library.yaml@main`)
 - **Code quality**: SonarCloud
 - **Security scanning**: OWASP Dependency-Check Maven plugin (configured with NVD API key)
 
@@ -97,7 +97,7 @@ apache2=apache2ctl start;apache2ctl stop
 
 ## CI/CD Pipeline
 
-The GitHub Actions workflow (`default.yaml`) delegates to the shared reusable workflow at `rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`.
+The GitHub Actions workflow (`default.yaml`) delegates to the shared reusable workflow at `rios0rios0/pipelines/.github/workflows/maven-library.yaml@main`.
 
 It runs on:
 - Pushes to `main`

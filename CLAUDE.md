@@ -33,4 +33,4 @@ mvn jacoco:report        # coverage report at target/site/jacoco/index.html (run
 
 ## CI
 
-GitHub Actions workflow (`default.yaml`) delegates to `rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`. Includes OWASP Dependency-Check (requires `NVD_API_KEY` secret) and SonarCloud quality gate.
+GitHub Actions workflow (`default.yaml`) delegates to `rios0rios0/pipelines/.github/workflows/maven-library.yaml@main`. Includes OWASP Dependency-Check (requires `NVD_API_KEY` secret) and SonarCloud quality gate.
