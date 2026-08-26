@@ -51,8 +51,4 @@ public class Colorize {
     static String setColor(String output, Params color, boolean bold) {
         return setColor(output, color, bold, false);
     }
-
-    static String setColor(String output, Params color) {
-        return setColor(output, color, false);
-    }
 }
