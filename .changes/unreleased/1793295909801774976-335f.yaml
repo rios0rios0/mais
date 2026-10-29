@@ -1,0 +1,3 @@
+kind: 'Fixed'
+body: 'fixed the eight CodeQL findings in `SecurityAgent` that the pipelines CodeQL gate now fails on: added the missing `@Override` annotations to `syn`, `ack` and the three `Runnable.run` implementations, replaced the `equals("")` checks with `isEmpty()`, and ran `shutdown` by its absolute path `/sbin/shutdown` instead of resolving it through `PATH`'
+time: '2026-10-29T17:45:09.801591311Z'

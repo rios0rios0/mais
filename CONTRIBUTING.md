@@ -7,7 +7,7 @@ development practices, refer to the **[Development Guide](https://github.com/rio
 
 ## Prerequisites
 
-- [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) v1.7+
+- [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) v1.8+
 - [Apache Maven](https://maven.apache.org/download.cgi) v3.6+
 
 ## Development Workflow
@@ -29,10 +29,10 @@ development practices, refer to the **[Development Guide](https://github.com/rio
    The report will be available at `target/site/jacoco/index.html`.
 6. Run the agent:
    ```bash
-   java -jar target/MAIS-1.0.0-jar-with-dependencies.jar
+   java -jar target/MAIS-<version>-jar-with-dependencies.jar
    ```
 7. Configure security policies by editing the properties files under `src/main/resources/`:
    - `blacklist.properties` -- processes to kill when detected
    - `whitelist.properties` -- processes to keep running
-8. Commit following the [commit conventions](https://github.com/rios0rios0/guide/wiki/Life-Cycle/Git-Flow)
+8. Commit following the [commit conventions](https://github.com/rios0rios0/guide/wiki/Git-Flow)
 9. Open a pull request against `main`

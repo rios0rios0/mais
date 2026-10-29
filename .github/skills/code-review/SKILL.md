@@ -20,7 +20,7 @@ The canonical engineering standards live in the
 repo-tailored index into that guide plus the rules that only apply here. Precedence, highest
 first:
 
-1. This repository's `.github/copilot-instructions.md`, `CLAUDE.md`, and `CONTRIBUTING.md` —
+1. This repository's `AGENTS.md`, `.github/copilot-instructions.md`, and `CONTRIBUTING.md` —
    they describe *this* codebase and its load-bearing invariants.
 2. The **rios0rios0/guide** wiki — the shared standard.
 3. General language idiom.
@@ -48,6 +48,10 @@ guide disagree, the guide wins and this file should be corrected in the same pul
 | Security — OWASP checklist, secret hygiene, SAST | [Security](https://github.com/rios0rios0/guide/wiki/Security) |
 | CI & CD — pipeline stages and the local quality gates | [CI-&-CD](https://github.com/rios0rios0/guide/wiki/CI-&-CD) |
 | Code Style — baseline naming and the operations vocabulary | [Code-Style](https://github.com/rios0rios0/guide/wiki/Code-Style) |
+
+These pages also cover newer Java stacks. This project targets Java 1.8 with JUnit 4 and has no
+SLF4J, Spotless, Checkstyle, or PMD in `pom.xml`; where a page assumes them (records, sealed
+classes, JUnit 5, linters), the baseline in `AGENTS.md` and `pom.xml` wins.
 
 ## How to run the review
 
@@ -100,14 +104,14 @@ See [Java Conventions](https://github.com/rios0rios0/guide/wiki/Java-Conventions
   pattern for commands, controllers, services, repositories, and mappers.
 - Entities stay framework-agnostic; persistence and transport annotations belong on the
   models and DTOs of the infrastructure layer.
-- Logging goes through SLF4J with `{}` placeholders — never string concatenation, never
-  `System.out.println` or `printStackTrace()`.
-- Prefer records for immutable data and `Optional` over returning `null`; never use raw
-  generic types or `Object` as a catch-all parameter.
+- Terminal output goes through the `Console`/`Colorize` helpers — never a bare
+  `System.out.println` outside them, and never `printStackTrace()`.
+- Prefer immutable classes with `final` fields for data (records need Java 16) and `Optional`
+  over returning `null`; never use raw generic types or `Object` as a catch-all parameter.
 - Catch the narrowest exception that can be thrown; an empty `catch` block, or one that only
   prints, is a finding.
-- Formatting is Google Java Format via Spotless; Checkstyle and PMD findings are fixed, not
-  suppressed without justification.
+- No formatter or linter is configured in `pom.xml`; match the formatting of the surrounding
+  file. SonarCloud findings from CI are fixed, not suppressed without justification.
 
 ### Dispatch tables over `switch`
 
@@ -164,7 +168,7 @@ hand.
 - Fragment bodies start with a lowercase verb in simple past tense, capitalise proper nouns
   (GitHub, Go, Docker), and wrap code identifiers and versions in backticks.
 - `README.md` is updated whenever usage, setup, configuration, or architecture changes;
-  `.github/copilot-instructions.md` and `CLAUDE.md` whenever the workflow, commands, or
+  `.github/copilot-instructions.md` and `AGENTS.md` whenever the workflow, commands, or
   structure changes. Documentation and code ship in one commit.
 
 ## Git Flow and pull-request hygiene
@@ -228,7 +232,7 @@ A review that raises noise gets ignored. Do not report these:
 ### Change-control checklist
 - [ ] Changelog entry present for every behavioural change
 - [ ] `README.md` updated if usage, setup, or architecture changed
-- [ ] `.github/copilot-instructions.md` and `CLAUDE.md` updated if the workflow, commands, or structure changed
+- [ ] `.github/copilot-instructions.md` and `AGENTS.md` updated if the workflow, commands, or structure changed
 - [ ] Commit messages follow `type(SCOPE): message` in simple past tense
 - [ ] Breaking changes flagged in the commit footer, the changelog, and the PR description
 
