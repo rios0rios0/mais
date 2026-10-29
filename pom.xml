@@ -53,7 +53,8 @@
                 <artifactId>dependency-check-maven</artifactId>
                 <version>12.2.0</version>
                 <configuration>
-                    <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+                    <!-- the key is read from NVD_API_KEY by name: an <nvdApiKey> value is printed by `mvn -X` (GHSA-qqhq-8r2c-c3f5) -->
+                    <nvdApiKeyEnvironmentVariable>NVD_API_KEY</nvdApiKeyEnvironmentVariable>
                     <nvdValidForHours>24</nvdValidForHours>
                     <!-- failOnError keeps its default (true): set to false, a failed NVD download skipped the scan and the build still passed -->
                     <failBuildOnCVSS>7</failBuildOnCVSS>
