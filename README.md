@@ -29,11 +29,11 @@ A distributed multi-agent security system built with Java that monitors and enfo
 
 ## Technologies
 
-- Java 1.7 (SDK language level 7)
+- Java 1.8 (SDK language level 8)
 - [Maven](https://maven.apache.org/) with `maven-assembly-plugin` for fat JAR packaging
 - [Java RMI](https://docs.oracle.com/javase/7/docs/technotes/guides/rmi/) for inter-agent communication
 - [jProcesses](https://github.com/profesorfalken/jProcesses) 1.6.5 for cross-platform process inspection
-- [JUnit](https://junit.org/junit4/) 4.13.1 for testing
+- [JUnit](https://junit.org/junit4/) 4.13.2 for testing
 - [JaCoCo](https://www.eclemma.org/jacoco/) for code coverage
 
 ## Project Structure
@@ -84,7 +84,7 @@ mais/
 ### Running the agent
 
 ```bash
-java -jar target/MAIS-1.0.0-jar-with-dependencies.jar
+java -jar target/MAIS-<version>-jar-with-dependencies.jar
 ```
 
 The agent will:

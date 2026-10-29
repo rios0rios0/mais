@@ -1,0 +1,3 @@
+kind: 'Changed'
+body: 'refreshed `AGENTS.md`, `.github/copilot-instructions.md`, `.github/skills/code-review/SKILL.md`, `README.md`, and `CONTRIBUTING.md`: pointed the review skill at `AGENTS.md` instead of `CLAUDE.md`, aligned its Java rules with the Java 1.8 baseline that has no SLF4J, Spotless, Checkstyle, or PMD, corrected the Java and JUnit versions and the JAR name in the docs, fixed the Git Flow wiki link, and listed the missing files in the Copilot repository tree'
+time: '2026-10-29T00:01:19.568228451Z'

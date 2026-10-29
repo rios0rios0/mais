@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI coding agents (Claude Code, Codex, Cursor, GitHub Copilot) when working with code in this repository.
 
 ## Project
 
@@ -10,8 +10,8 @@ MAIS (Multi Agent Intelligent System) — distributed multi-agent security syste
 
 ```bash
 mvn clean package        # compile + fat JAR (target/MAIS-<version>-jar-with-dependencies.jar)
-mvn test                 # run tests (JaCoCo agent activates automatically)
-mvn jacoco:report        # coverage report at target/site/jacoco/index.html (run tests first)
+mvn test                 # run tests; JaCoCo writes target/site/jacoco/index.html in the test phase
+mvn test -Dtest=MainTest # run a single test class
 ```
 
 ## Architecture
@@ -24,9 +24,7 @@ mvn jacoco:report        # coverage report at target/site/jacoco/index.html (run
 ## Conventions
 
 - Java 1.8 source/target. Do not use Java 9+ features (modules, `var`).
-- All production classes under `src/main/java/com/rios0rios0/`. Group ID: `com.rios0rios0`.
 - Use `Console` and `Colorize` utilities for terminal output, not `System.out.println`.
-- RMI remote interfaces extend `java.rmi.Remote`; all remote methods declare `throws RemoteException`.
 - Tests use JUnit 4 (`@Test`, `@Before`, etc.) under `src/test/java/com/rios0rios0/`.
 - Pin dependency versions in `pom.xml` — no version ranges.
 - Commit conventions: [rios0rios0/guide/wiki](https://github.com/rios0rios0/guide/wiki).

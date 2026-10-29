@@ -22,9 +22,14 @@ Agents communicate via Java RMI using a SYN/ACK-inspired protocol, sharing proce
 
 ```
 mais/
+├── .changes/unreleased/          # chlog fragments (CHANGELOG.md is generated from them)
 ├── .github/
 │   ├── copilot-instructions.md   # This file
+│   ├── skills/
+│   │   └── code-review/SKILL.md  # Repo-tailored pull-request review skill
 │   └── workflows/
+│       ├── claude-mention.yaml   # @claude mention responder (reusable workflow)
+│       ├── claude-review.yaml    # Automated Claude PR review (reusable workflow)
 │       └── default.yaml          # CI/CD pipeline (delegates to shared pipelines repo)
 ├── src/
 │   ├── main/
@@ -48,7 +53,9 @@ mais/
 │   └── test/java/com/rios0rios0/
 │       └── MainTest.java
 ├── pom.xml
+├── AGENTS.md                     # Shared agent instructions
 ├── CHANGELOG.md
+├── CLAUDE.md                     # Imports AGENTS.md only
 ├── CONTRIBUTING.md
 ├── LICENSE
 └── README.md
