@@ -24,7 +24,9 @@ mvn test -Dtest=MainTest # run a single test class
 ## Conventions
 
 - Java 1.8 source/target. Do not use Java 9+ features (modules, `var`).
+- All production classes under `src/main/java/com/rios0rios0/`. Group ID: `com.rios0rios0`.
 - Use `Console` and `Colorize` utilities for terminal output, not `System.out.println`.
+- RMI remote interfaces extend `java.rmi.Remote`; all remote methods declare `throws RemoteException`.
 - Tests use JUnit 4 (`@Test`, `@Before`, etc.) under `src/test/java/com/rios0rios0/`.
 - Pin dependency versions in `pom.xml` — no version ranges.
 - Commit conventions: [rios0rios0/guide/wiki](https://github.com/rios0rios0/guide/wiki).

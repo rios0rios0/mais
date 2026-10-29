@@ -43,18 +43,21 @@ public class SecurityAgent extends DefaultAgent implements Agent {
     private String hostAddress = "";
 
     private final Runnable scanThread = new Runnable() {
+        @Override
         public void run() {
             scanNetwork();
         }
     };
 
     private final Runnable sendThread = new Runnable() {
+        @Override
         public void run() {
             sendReportAgents();
         }
     };
 
     private final Runnable actionThread = new Runnable() {
+        @Override
         public void run() {
             actingProcess();
         }
@@ -215,11 +218,11 @@ public class SecurityAgent extends DefaultAgent implements Agent {
                 } else {
                     Console.showMsgInfo(String.format("Forçando desligamento do processo: '%s'...", process.getName()));
                     String command = whitelist.get(process.getName());
-                    if ((command != null) && (!command.equals(""))) {
+                    if ((command != null) && (!command.isEmpty())) {
                         result = Commands.executeCommandRoot(command.split(";")[1]);
                     } else {
                         command = blacklist.get(process.getName());
-                        if ((command != null) && (!command.equals(""))) {
+                        if ((command != null) && (!command.isEmpty())) {
                             result = Commands.executeCommandRoot(command + " " + process.getPid());
                         } else {
                             result = false;
@@ -241,7 +244,7 @@ public class SecurityAgent extends DefaultAgent implements Agent {
     private void shutdownDevice() {
         try {
             Runtime runtime = Runtime.getRuntime();
-            runtime.exec("shutdown -h now");
+            runtime.exec(new String[] {"/sbin/shutdown", "-h", "now"});
             System.exit(100);
         } catch (Exception e) {
             Console.showMsgError(e.getMessage());
@@ -383,10 +386,12 @@ public class SecurityAgent extends DefaultAgent implements Agent {
         }
     }
 
+    @Override
     public Report syn() {
         return new Report(this);
     }
 
+    @Override
     public void ack(Report report) {
         try {
             Agent agent = (Agent)
