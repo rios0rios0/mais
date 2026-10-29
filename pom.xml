@@ -55,8 +55,7 @@
                 <configuration>
                     <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
                     <nvdValidForHours>24</nvdValidForHours>
-                    <nvdApiDelay>6000</nvdApiDelay>
-                    <failOnError>false</failOnError>
+                    <!-- failOnError keeps its default (true): set to false, a failed NVD download skipped the scan and the build still passed -->
                     <failBuildOnCVSS>7</failBuildOnCVSS>
                 </configuration>
             </plugin>
