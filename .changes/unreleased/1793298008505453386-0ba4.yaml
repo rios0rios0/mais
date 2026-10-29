@@ -1,0 +1,3 @@
+kind: 'Fixed'
+body: 'fixed OWASP Dependency-Check passing without scanning: removed `failOnError=false`, under which a failed NVD download skipped the analysis and the build still succeeded, and removed `nvdApiDelay=6000`, a 6-second pause between NVD API calls that the client''s own rate limiting already makes unnecessary'
+time: '2026-10-29T18:20:08.505395449Z'
