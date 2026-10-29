@@ -1,0 +1,3 @@
+kind: 'Security'
+body: 'stopped passing the NVD API key''s value into the Dependency-Check plugin configuration, where `mvn -X` printed it (GHSA-qqhq-8r2c-c3f5); the plugin now reads it from `NVD_API_KEY` by name through `nvdApiKeyEnvironmentVariable`'
+time: '2026-10-29T18:48:48.456090479Z'
