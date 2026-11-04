@@ -22,6 +22,22 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+## [0.4.2] - 2026-11-04
+
+### Changed
+
+- moved the agent instructions from `CLAUDE.md` to `AGENTS.md`, keeping a `CLAUDE.md` that imports it
+- refreshed `AGENTS.md`, `.github/copilot-instructions.md`, `.github/skills/code-review/SKILL.md`, `README.md`, and `CONTRIBUTING.md`: pointed the review skill at `AGENTS.md` instead of `CLAUDE.md`, aligned its Java rules with the Java 1.8 baseline that has no SLF4J, Spotless, Checkstyle, or PMD, corrected the Java and JUnit versions and the JAR name in the docs, fixed the Git Flow wiki link, and listed the missing files in the Copilot repository tree
+
+### Fixed
+
+- fixed OWASP Dependency-Check passing without scanning: removed `failOnError=false`, under which a failed NVD download skipped the analysis and the build still succeeded, and removed `nvdApiDelay=6000`, a 6-second pause between NVD API calls that the client's own rate limiting already makes unnecessary
+- fixed the eight CodeQL findings in `SecurityAgent` that the pipelines CodeQL gate now fails on: added the missing `@Override` annotations to `syn`, `ack` and the three `Runnable.run` implementations, replaced the `equals("")` checks with `isEmpty()`, and ran `shutdown` by its absolute path `/sbin/shutdown` instead of resolving it through `PATH`
+
+### Security
+
+- stopped passing the NVD API key's value into the Dependency-Check plugin configuration, where `mvn -X` printed it (GHSA-qqhq-8r2c-c3f5); the plugin now reads it from `NVD_API_KEY` by name through `nvdApiKeyEnvironmentVariable`
+
 ## [0.4.1] - 2026-09-08
 
 ### Changed
