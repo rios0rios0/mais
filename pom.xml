@@ -92,7 +92,7 @@
         <dependency>
             <groupId>org.jprocesses</groupId>
             <artifactId>jProcesses</artifactId>
-            <version>1.6.5</version>
+            <version>1.7.0</version>
         </dependency>
     </dependencies>
     <reporting>
