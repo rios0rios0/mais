@@ -22,6 +22,12 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+## [0.4.3] - 2026-11-18
+
+### Changed
+
+- changed the Maven dependency `org.jprocesses:jProcesses` from `1.6.5` to `1.7.0`
+
 ## [0.4.2] - 2026-11-04
 
 ### Changed
